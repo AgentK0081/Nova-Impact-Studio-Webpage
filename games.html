@@ -1,42 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Anime Studio - Our Games</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Impact Studio – Games</title>
+
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --panel: #141a24;
+      --accent: #5cffc7;
+      --text: #ffffff;
+      --muted: #9aa4b2;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617);
+      color: var(--text);
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeDown 0.6s ease;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .games-grid {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .game-card {
+      background: var(--panel);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .game-info {
+      padding: 16px;
+    }
+
+    .game-info h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .game-info p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= PROMO / ADMIN ================= */
+
+    .admin-panel {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+      background: var(--panel);
+      border-radius: 16px;
+      display: none;
+      animation: fadeUp 0.5s ease;
+    }
+
+    .admin-panel h2 {
+      margin-top: 0;
+    }
+
+    .admin-panel textarea {
+      width: 100%;
+      height: 120px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 12px;
+      color: white;
+      resize: none;
+      font-size: 14px;
+    }
+
+    .admin-panel button {
+      margin-top: 12px;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      background: linear-gradient(90deg, #5cffc7, #38bdf8);
+      color: black;
+    }
+
+    .promo-display {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(92,255,199,0.08);
+      border-radius: 14px;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .promo-display h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    /* ===== Animations (easy to remove) ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Our Games</h1>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="games.html">Games</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Featured Games</h2>
-      <ul>
-        <li><strong>Anime Slayer X</strong> – Fight your way through anime-inspired worlds.</li>
-        <li><strong>Ninja Rebirth</strong> – Become the next great shinobi.</li>
-      </ul>
-    </section>
+<header>
+  <h1>Our Games</h1>
+  <p>Crafted by Nova Impact Studio</p>
+</header>
 
-    <section class="card">
-      <h2>Promo Codes</h2>
-      <ul>
-        <li><code>SLAY2025</code> – Free 500 Coins</li>
-        <li><code>NINJA100</code> – Unlock a secret item</li>
-      </ul>
-    </section>
+<section class="games-grid">
+  <!-- Upload images to /games/ folder -->
+  <div class="game-card" onclick="roblox.com/games/71227887041336/Ninja-Merge-Tycoon">
+    <img src="games/Naruto-Merge-Tycoon" />
+    <div class="game-info">
+      <h3>Naruto Merge Tycoon</h3>
+      <p>Action • Anime • PvP</p>
+    </div>
+  </div>
+  
+  <div class="game-card" onclick="openCommunity()">
+    <img src="games/Zombie-Merge-Turret-Defense" />
+    <div class="game-info">
+      <h3>Zombie Merge Turret Defense</h3>
+      <p>Strategy • Defense • Merge</p>
+    </div>
+  </div>
 
-    <section class="card">
-      <h2>Badges</h2>
-      <img src="badge1.png" alt="Badge 1" class="badge-img">
-      <img src="badge2.png" alt="Badge 2" class="badge-img">
-    </section>
-  </main>
+  <div class="game-card" onclick="openCommunity()">
+    <img src="games/anime-clash.png" />
+    <div class="game-info">
+      <h3>Anime All Star Clash</h3>
+      <p>Stategy • Anime • Merge</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO DISPLAY -->
+<div class="promo-display" id="promoBox" style="display:none;">
+  <h3>Announcements / Promo Codes</h3>
+  <p id="promoText"></p>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <h2>Developer Promo Editor</h2>
+  <textarea id="promoInput" placeholder="Enter announcement or promo codes..."></textarea>
+  <button onclick="savePromo()">Save</button>
+</div>
+
+<footer>
+  © Nova Impact Studio – All Rights Reserved
+</footer>
+
+<script>
+  const promoBox = document.getElementById('promoBox');
+  const promoText = document.getElementById('promoText');
+  const adminPanel = document.getElementById('adminPanel');
+
+  // Load saved promo
+  const savedPromo = localStorage.getItem('novaPromo');
+  if (savedPromo) {
+    promoBox.style.display = 'block';
+    promoText.textContent = savedPromo;
+  }
+
+  // Dev login (simple)
+  const pw = prompt('Developers only – enter password (cancel to skip)');
+  if (pw === 'novaimpactdev') {
+    adminPanel.style.display = 'block';
+  }
+
+  function savePromo() {
+    const text = document.getElementById('promoInput').value;
+    localStorage.setItem('novaPromo', text);
+    promoText.textContent = text;
+    promoBox.style.display = 'block';
+    alert('Promo updated successfully');
+  }
+
+  function openCommunity() {
+    window.open('https://www.roblox.com/communities/35207938/Nova-Impact-Studio#!/about', '_blank');
+  }
+</script>
+
 </body>
 </html>
